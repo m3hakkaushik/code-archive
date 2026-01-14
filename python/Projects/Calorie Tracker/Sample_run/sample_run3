@@ -1,0 +1,28 @@
+Welcome to the Daily Calorie Tracker!
+This tool helps you record your meals, count total calories, and compare with your daily calorie limit.
+
+How many meals do you want to enter today? 2
+
+Enter name of meal 1: Snack
+Enter calories for Snack: 150
+
+Enter name of meal 2: Juice
+Enter calories for Juice: 120
+
+Enter your daily calorie limit: 800
+
+Your Calorie Report:
+
+Meal Name	Calories
+--------------------------------
+Snack		    150.0
+Juice		    120.0
+--------------------------------
+Total:		    270.0
+Average:	    135.00
+
+✅ You are within your daily calorie limit!
+
+Do you want to save this session to a file? (yes/no): yes
+
+Session saved successfully to calorie_log.txt!
