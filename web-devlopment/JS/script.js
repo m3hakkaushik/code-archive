@@ -91,5 +91,11 @@
     // const obj=Object.fromEntries(entries)
     // console.log(obj) //{name: 'sadav', age: 23}
 
+/* Lecture: Introduction to DOM Traversal*/
+    // const container = document.getElementById("container");
+    // container.firstElementChild.style.color ='blue';
+    // container.lastElementChild.style.fontWeight ='bold';
+    // console.log(container);
 
-    
+    const container2 = document.getElementsByClassName("container2");
+    console.log(container2);
