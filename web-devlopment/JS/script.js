@@ -97,5 +97,45 @@
     // container.lastElementChild.style.fontWeight ='bold';
     // console.log(container);
 
-    const container2 = document.getElementsByClassName("container2");
-    console.log(container2);
+    // const container2 = document.getElementsByClassName("container2");
+    // console.log(container2);
+    // let count =1
+    // const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
+    
+
+    // const timeoutID=setInterval(()=>{clearInterval(timerID)},10000)
+    // // clear Timeout(timeputID)
+
+    // let num =1 ;
+    // const id = setInterval(()=>{
+    //     if (num==10)clearInterval(id)
+    //     console.log(num)
+    //     num++
+    // },1000)
+
+    // const name= document.querySelector("#name")
+    // const btn=document.querySelector(".btn")
+    // const list=document.querySelector(".list")
+    // btn.addEventListener('click',()=>{
+    //     const li=document.createElement("li")
+    //     li.innerText=name.value;
+    //     list.appendChild(li)
+    //     name.value=""
+    // })
+
+    const list =document.querySelector(".list")
+    btn.addEventListener('click',()=>{
+        const li=document.createElement("li")
+        li.innerText=name.value;
+     
+
+
+
+
+
+
+
+
+
+
+
