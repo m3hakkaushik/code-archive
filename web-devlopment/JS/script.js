@@ -123,17 +123,78 @@
     //     name.value=""
     // })
 
-    const list =document.querySelector(".list")
-    btn.addEventListener('click',()=>{
-        const li=document.createElement("li")
-        li.innerText=name.value;
+    // const name= document.querySelector("#name")
+    // const btn=document.querySelector(".btn")
+    // const list =document.querySelector(".list")
+    // btn.addEventListener('click',()=>{
+    //     if (name.value===""){
+    //         alert("enter the name!!")
+    //         return;
+    //     }
+
+    //     const li=document.createElement("li")
+    //     const dlt=document.createElement("button")
+    //     li.innerText=name.value;
+    //     dlt.addEventListener("click",()=>{
+    //         list.removeChild(li)
+    //     })
+    //     li.appendChild(dlt)
+    //     list.appendChild(li)
+    //     name.value=""
+    // })
      
 
+    //chatgpt.....
+    //     const name = document.querySelector("#name")
+    // const btn = document.querySelector(".btn")
+    // const list = document.querySelector(".list")
+
+    // btn.addEventListener('click', () => {
+    //     if (name.value.trim() === "") return
+
+    //     const li = document.createElement("li")
+    //     const dlt = document.createElement("button")
+
+    //     li.innerText = name.value
+    //     dlt.addEventListener("click", () => {
+    //         list.removeChild(li)
+    //     })
+
+    //     li.appendChild(dlt)
+    //     list.appendChild(li)
+    //     name.value = ""
+    // })
 
 
+    // function print(num){
+    //     console.log("inside print")
+    //     num()
+    // }
+
+    // function callback(){
+    //     console.log("inside callback")
+    
+    // }
+
+    // print(callback)
 
 
+    function print(num){
+        setTimeout(()=>{
+            console.log("inside print")
+            num()
+        },2000)
+    }
+    
+    function sample2(){ //callnack fn
+            console.log("inside callback ")
+    }
+    function sample(){ //callnack fn
+            console.log("inside callback ")
+    }
 
+    print(sample)
+    print(sample2)
 
 
 
