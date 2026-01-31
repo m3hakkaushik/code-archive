@@ -179,22 +179,67 @@
     // print(callback)
 
 
-    function print(num){
-        setTimeout(()=>{
-            console.log("inside print")
-            num()
-        },2000)
-    }
+    // function print(num){ // hof: higher order function
+    //     setTimeout(()=>{
+    //         console.log("inside print")
+    //         num()
+    //     },2000)
+    // }
     
-    function sample2(){ //callnack fn
-            console.log("inside callback ")
-    }
-    function sample(){ //callnack fn
-            console.log("inside callback ")
-    }
+    // function sample2(){ //callnack fn
+    //         console.log("inside callback ")
+    // }
+    // function sample(){ //callnack fn
+    //         console.log("inside callback ")
+    // }
 
-    print(sample)
-    print(sample2)
+    // print(sample)
+    // print(sample2)
+
+    // console.log("Starting homework...");
+    // setTimeout(() => {
+    //     console.log ("Homework done!");
+    //     console.log("Starting dinner...");
+    //     setTimeout(() => {
+    //         console.log("Dinner done!");
+    //         console.log("Getting ready to go out...");
+    //         setTimeout(() => {
+    //             console.log("Going to the playground!");
+    //         }, 1000); // after dinner
+    //     }, 2000); // dinner time
+    // }, 3000); // homework time
+
+//     function finishHomework(callback) {
+//     console. log("Starting homework...");
+//         setTimeout (() => {
+//             console. log ("Homework done!");
+//             callback();
+//         }, 2000);
+//     ｝
+//     function eatDinner (callback) ‹
+//     console. log("Starting dinner...");
+//     setTimeout ( () => {
+//         console. log("Dinner done!");
+//         callback();
+//         ｝，1500）；
+//     function goToPlayground) 1
+//     console. log ("Going to the playground!");
+//     }
+//     ｝
+//     // Chained in steps, but cleaner
+//     finishHomework(() => {
+//     eatDinner ( ( ) => {
+//     goToPlayground();
+//     });
+// });
+
+
+
+
+
+
+
+
 
 
 
