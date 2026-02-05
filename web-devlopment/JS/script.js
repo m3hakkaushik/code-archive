@@ -196,6 +196,8 @@
     // print(sample)
     // print(sample2)
 
+
+    // // // // // // // callback hell
     // console.log("Starting homework...");
     // setTimeout(() => {
     //     console.log ("Homework done!");
@@ -209,29 +211,152 @@
     //     }, 2000); // dinner time
     // }, 3000); // homework time
 
-//     function finishHomework(callback) {
-//     console. log("Starting homework...");
-//         setTimeout (() => {
-//             console. log ("Homework done!");
-//             callback();
-//         }, 2000);
-//     ｝
-//     function eatDinner (callback) ‹
-//     console. log("Starting dinner...");
-//     setTimeout ( () => {
-//         console. log("Dinner done!");
-//         callback();
-//         ｝，1500）；
-//     function goToPlayground) 1
-//     console. log ("Going to the playground!");
-//     }
-//     ｝
-//     // Chained in steps, but cleaner
-//     finishHomework(() => {
-//     eatDinner ( ( ) => {
-//     goToPlayground();
-//     });
-// });
+    //     function finishHomework(callback) {
+    //     console. log("Starting homework...");
+    //         setTimeout (() => {
+    //             console. log ("Homework done!");
+    //             callback();
+    //         }, 2000);
+    //     ｝
+    //     function eatDinner (callback) ‹
+    //     console. log("Starting dinner...");
+    //     setTimeout ( () => {
+    //         console. log("Dinner done!");
+    //         callback();
+    //         ｝，1500）；
+    //     function goToPlayground) 1
+    //     console. log ("Going to the playground!");
+    //     }
+    //     ｝
+    //     // Chained in steps, but cleaner
+    //     finishHomework(() => {
+    //     eatDinner ( ( ) => {
+    //     goToPlayground();
+    //     });
+    // });
+
+//ques : resolve the promise in 2 seconds......(interview lvl)
+    // const p = new Promise ((res,rej)=>{
+    //     let done=true;
+    //     setTimeout(()=>{
+    //         if (done){
+    //             res({name:"Anand",age:23})
+    //         } else{
+    //             rej ("Word has not been completed")
+    //         }
+    //         //reject()
+    //     },5000)
+    // })
+    // // console.log(p)
+    // p.then((data)=>{
+    //     console.log(data.name)
+    // }).catch ((err)=>{
+    //     console.log(err)
+    // }).finally(()=>{
+    //     console.log("finally block")
+    // })
+    // console.log("after promise")
+
+    // console.log("before promise")
+    // const p = new Promise ((res,rej)=>{
+    //     // let done=true;
+    //     // setTimeout(()=>{
+    //     //     if (done){
+    //     //         res({name:"Anand",age:23})
+    //     //     } else{
+    //     //         rej ("Word has not been completed")
+    //     //     }
+    //     //     //reject()
+    //     // },5000)
+    // })
+    // // console.log(p)
+    // p.then((data)=>{
+    //     console.log("promise resolved")
+    // }).catch ((err)=>{
+    //     console.log(err)
+    // }).finally(()=>{
+    //     console.log("finally block")
+    // })
+    // console.log("after promise")
+    // function doHomework(){
+    //     const p= new Promise((res,rej)=>{
+    //         let done=true;
+    //         setTimeout(()=>{
+    //             if (done){
+    //                 console.log("Homework completed")
+    //                 res ("Homework is Done")
+    //             }else{
+    //                 rej("Homework is not completed")
+
+    //             }
+    //         },2000)
+    //     })
+    //     p.then((data)=>{
+    //         console.log("promise resolved")
+
+    //     })
+    // }
+    
+
+    //--------Multiple promise or chaining promise --------
+    function doHomework() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+        let homeworkDone = true;
+        if (homeworkDone) {
+            console.log("Homework is done");
+            resolve("Homework complete");
+        } else {
+            reject("Homework not done");
+        }
+        }, 3000);
+    });
+    }
+    function eatDinner() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+        let dinnerEaten = false;
+        if (dinnerEaten) {
+            console.log("Dinner is eaten");
+            resolve("Dinner complete");
+        } else {
+            reject(" Didn't eat dinner");
+        }
+        }, 2000);
+    });
+    }
+    function goToPlayground() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+        let permission = true;
+        if (permission) {
+            console.log(" Went to the playground");
+            resolve("Playground time!");
+        } else {
+            reject(" Not allowed to go out");
+        }
+        }, 3000);
+    });
+    }
+    //chaining
+    
+
+    // Promise Chaining Starts
+    doHomework()
+    .then((data) => {
+    console.log(data);
+    return eatDinner();
+    })
+    .then((data) => {
+    console.log(data);
+    return goToPlayground();
+    })
+    .catch((error) => {
+    console.log("Something went wrong:", error);
+    })
+    .finally(() => {
+    console.log("Day ended — Go to sleep");
+    });
 
 
 
