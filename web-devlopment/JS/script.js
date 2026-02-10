@@ -299,74 +299,96 @@
     
 
     //--------Multiple promise or chaining promise --------
-    function doHomework() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-        let homeworkDone = true;
-        if (homeworkDone) {
-            console.log("Homework is done");
-            resolve("Homework complete");
-        } else {
-            reject("Homework not done");
-        }
-        }, 3000);
-    });
-    }
-    function eatDinner() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-        let dinnerEaten = false;
-        if (dinnerEaten) {
-            console.log("Dinner is eaten");
-            resolve("Dinner complete");
-        } else {
-            reject(" Didn't eat dinner");
-        }
-        }, 2000);
-    });
-    }
-    function goToPlayground() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-        let permission = true;
-        if (permission) {
-            console.log(" Went to the playground");
-            resolve("Playground time!");
-        } else {
-            reject(" Not allowed to go out");
-        }
-        }, 3000);
-    });
-    }
-    //chaining
+    // function doHomework() {
+    // return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //     let homeworkDone = true;
+    //     if (homeworkDone) {
+    //         console.log("Homework is done");
+    //         resolve("Homework complete");
+    //     } else {
+    //         reject("Homework not done");
+    //     }
+    //     }, 3000);
+    // });
+    // }
+    // function eatDinner() {
+    // return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //     let dinnerEaten = false;
+    //     if (dinnerEaten) {
+    //         console.log("Dinner is eaten");
+    //         resolve("Dinner complete");
+    //     } else {
+    //         reject(" Didn't eat dinner");
+    //     }
+    //     }, 2000);
+    // });
+    // }
+    // function goToPlayground() {
+    // return new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //     let permission = true;
+    //     if (permission) {
+    //         console.log(" Went to the playground");
+    //         resolve("Playground time!");
+    //     } else {
+    //         reject(" Not allowed to go out");
+    //     }
+    //     }, 3000);
+    // });
+    // }
+    // //chaining
     
 
-    // Promise Chaining Starts
-    doHomework()
-    .then((data) => {
-    console.log(data);
-    return eatDinner();
+    // // Promise Chaining Starts
+    // doHomework()
+    // .then((data) => {
+    // console.log(data);
+    // return eatDinner();
+    // })
+    // .then((data) => {
+    // console.log(data);
+    // return goToPlayground();
+    // })
+    // .catch((error) => {
+    // console.log("Something went wrong:", error);
+    // })
+    // .finally(() => {
+    // console.log("Day ended — Go to sleep");
+    // });
+
+
+function orderfood(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            console.log("food ordered")
+            res()
+        })
     })
-    .then((data) => {
-    console.log(data);
-    return goToPlayground();
+}
+function prepfood(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            console.log("food prepared")
+            res()
+        },2000)
     })
-    .catch((error) => {
-    console.log("Something went wrong:", error);
+}
+function deliverfood(){
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            console.log("food delivered")
+            res()
+        },2000)
     })
-    .finally(() => {
-    console.log("Day ended — Go to sleep");
-    });
+}
 
+async function food_order() {
+    await orderfood()
+    await prepfood()
+    await deliverfood()
 
+}
 
-
-
-
-
-
-
-
-
-
-
+food_order()
