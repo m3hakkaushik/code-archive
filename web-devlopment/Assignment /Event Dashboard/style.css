@@ -1,0 +1,22 @@
+.card{
+    background-color: aqua;
+    width: 300px;
+    position: relative;
+
+}
+.deletecard{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+
