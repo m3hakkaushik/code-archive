@@ -1,14 +1,22 @@
 const form = document.querySelector('#form');
-const eventCard = document.querySelector('.cards'); // container for cards
+const eventCard = document.querySelector('.cards');
+const clearBtn = document.getElementById('clearBtn');
+const sampleBtn = document.getElementById('sampleBtn');
 
-form.addEventListener('submit', function(event) {
+// ADD EVENT
+form.addEventListener('submit', function (event) {
     event.preventDefault();
 
-    const title = document.getElementById("eventTitle").value;
-    const date = document.getElementById("eventDate").value;
-    const cat = document.getElementById("category").value;
-    const desc = document.getElementById("description").value;
+    const title = eventTitle.value;
+    const date = eventDate.value;
+    const cat = category.value;
+    const desc = description.value;
 
+    createCard(title, date, cat, desc);
+    form.reset();
+});
+
+function createCard(title, date, cat, desc) {
     const card = document.createElement('div');
     card.classList.add('card');
 
@@ -17,16 +25,29 @@ form.addEventListener('submit', function(event) {
         <p>🗓️ ${date}</p>
         <button>${cat}</button>
         <p>${desc}</p>
-        <div class="deletecard">
+        <div class="deletecard">x</div>
     `;
 
-    card.querySelector('.deletecard').addEventListener('click',function(){
-        card.remove()
-    })
+    card.querySelector('.deletecard').addEventListener('click', () => {
+        card.remove();
+    });
 
     eventCard.appendChild(card);
+}
+
+// CLEAR EVENTS
+clearBtn.addEventListener('click', () => {
+    eventCard.innerHTML = "";
 });
 
-document.addEventListener('keydown'),(event)=>{
-    document.querySelector('.key').innerText=event.key
-}
+// SAMPLE EVENTS
+sampleBtn.addEventListener('click', () => {
+    createCard("Emifest","2026-01-14","Social","lorem ipsum");
+    createCard("Tech Conference","2026-02-10","Conference","AI event");
+    createCard("Web Dev Meetup","2026-03-05","Meetup","Frontend meetup");
+});
+
+// KEY DEMO
+document.addEventListener('keydown', (event) => {
+    document.querySelector('.key').innerText = event.key;
+});
