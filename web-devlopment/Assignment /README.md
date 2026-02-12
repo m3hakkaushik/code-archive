@@ -59,7 +59,7 @@ Smart-Event-Dashboard/
 Clone the repository:
 
 ```
-git clone https://github.com/your-username/smart-event-dashboard.git
+git clone : https://github.com/m3hakkaushik/WEB-DEVLOPMENT-/tree/a838685963f7275ed313f499e97386be5f010638/Assignment%20
 ```
 
 Open the project folder and run:
@@ -73,14 +73,8 @@ Or use Live Server in VS Code.
 ---
 
 ## Screenshots
-
-(Add screenshots here later if you upload the project to GitHub)
-
-Example:
-
-```
-/Users/missaurat_/Desktop/Screenshot 2026-02-12 at 6.18.46 AM.png
-```
+<img width="1463" height="873" alt="Screenshot 2026-02-12 at 6 18 46 AM" src="https://github.com/user-attachments/assets/e6f5989d-02df-45bb-aae5-e821c4356ce3" />
+<img width="1393" height="874" alt="Screenshot 2026-02-12 at 6 24 37 AM" src="https://github.com/user-attachments/assets/c3622c62-3c77-4694-8b20-ab177028f382" />
 
 ---
 
