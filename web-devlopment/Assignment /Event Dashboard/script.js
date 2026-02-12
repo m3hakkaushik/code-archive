@@ -42,7 +42,7 @@ clearBtn.addEventListener('click', () => {
 
 // SAMPLE EVENTS
 sampleBtn.addEventListener('click', () => {
-    createCard("Emifest","2026-01-14","Social","lorem ipsum");
+    createCard("Ai Summit","2026-01-14","Social","AI conference");
     createCard("Tech Conference","2026-02-10","Conference","AI event");
     createCard("Web Dev Meetup","2026-03-05","Meetup","Frontend meetup");
 });
