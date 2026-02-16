@@ -3,7 +3,6 @@ const eventCard = document.querySelector('.cards');
 const clearBtn = document.getElementById('clearBtn');
 const sampleBtn = document.getElementById('sampleBtn');
 
-// ADD EVENT
 form.addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -35,19 +34,16 @@ function createCard(title, date, cat, desc) {
     eventCard.appendChild(card);
 }
 
-// CLEAR EVENTS
 clearBtn.addEventListener('click', () => {
     eventCard.innerHTML = "";
 });
 
-// SAMPLE EVENTS
 sampleBtn.addEventListener('click', () => {
     createCard("Ai Summit","2026-01-14","Social","AI conference");
     createCard("Tech Conference","2026-02-10","Conference","AI event");
     createCard("Web Dev Meetup","2026-03-05","Meetup","Frontend meetup");
 });
 
-// KEY DEMO
 document.addEventListener('keydown', (event) => {
     document.querySelector('.key').innerText = event.key;
 });

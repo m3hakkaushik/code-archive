@@ -92,15 +92,15 @@
     // console.log(obj) //{name: 'sadav', age: 23}
 
 /* Lecture: Introduction to DOM Traversal*/
-    // const container = document.getElementById("container");
-    // container.firstElementChild.style.color ='blue';
-    // container.lastElementChild.style.fontWeight ='bold';
-    // console.log(container);
+    const container = document.getElementById("container");
+    container.firstElementChild.style.color ='blue';
+    container.lastElementChild.style.fontWeight ='bold';
+    console.log(container);
 
-    // const container2 = document.getElementsByClassName("container2");
-    // console.log(container2);
-    // let count =1
-    // const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
+    const container2 = document.getElementsByClassName("container2");
+    console.log(container2);
+    let count =1
+    const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
     
 
     // const timeoutID=setInterval(()=>{clearInterval(timerID)},10000)
@@ -359,36 +359,36 @@
     // });
 
 
-function orderfood(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            console.log("food ordered")
-            res()
-        })
-    })
-}
-function prepfood(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            console.log("food prepared")
-            res()
-        },2000)
-    })
-}
-function deliverfood(){
-    return new Promise((res,rej)=>{
-        setTimeout(()=>{
-            console.log("food delivered")
-            res()
-        },2000)
-    })
-}
+    // function orderfood(){
+    //     return new Promise((res,rej)=>{
+    //         setTimeout(()=>{
+    //             console.log("food ordered")
+    //             res()
+    //         })
+    //     })
+    // }
+    // function prepfood(){
+    //     return new Promise((res,rej)=>{
+    //         setTimeout(()=>{
+    //             console.log("food prepared")
+    //             res()
+    //         },2000)
+    //     })
+    // }
+    // function deliverfood(){
+    //     return new Promise((res,rej)=>{
+    //         setTimeout(()=>{
+    //             console.log("food delivered")
+    //             res()
+    //         },2000)
+    //     })
+    // }
 
-async function food_order() {
-    await orderfood()
-    await prepfood()
-    await deliverfood()
+    // async function food_order() {
+    //     await orderfood()
+    //     await prepfood()
+    //     await deliverfood()
 
-}
+    // }
 
-food_order()
+    // food_order()
