@@ -91,16 +91,24 @@
     // const obj=Object.fromEntries(entries)
     // console.log(obj) //{name: 'sadav', age: 23}
 
+
+
 /* Lecture: Introduction to DOM Traversal*/
     const container = document.getElementById("container");
     container.firstElementChild.style.color ='blue';
     container.lastElementChild.style.fontWeight ='bold';
     console.log(container);
+    let heading = document.getElementById ("container");
+    console.log(heading.textContent); //OUTPUT : Submit
 
     const container2 = document.getElementsByClassName("container2");
     console.log(container2);
-    let count =1
-    const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
+    console.log(container2.textContent); //OUTPUT: undefined
+
+/* Lecture : Modern DOM Selectors
+
+    // let count =1
+    // const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
     
 
     // const timeoutID=setInterval(()=>{clearInterval(timerID)},10000)
@@ -392,3 +400,37 @@
     // }
 
     // food_order()
+
+
+    // // try.....catch error handling :
+    // console.log ("first line")
+    // // console.log (sample)
+    // console.log ("second line")
+
+    // try{
+    //     let sample=50
+        
+    //     console.log(sample)
+    // } catch (err){ // catch for runtime error only
+    //     console.log(err)
+    //     console.log("hello we got an eriofjhrbierd hgib ktjhbler")
+    // }
+
+    // console.log ("third line")
+
+
+    // custom error 
+    // console.log("hehe")
+    // try{
+    //     let age=16
+    //     // console.log(sample)
+    //     if(age<18){
+    //         throw new Error("you are minor")
+
+    //     }
+        
+    // } catch (err){ // catch for runtime error only
+    //     console.warn(err)
+    //     console.log("hello we got an eriofjhrbierd hgib ae ljrgbyviwe truwe buv3feuy tgdyr8bydirg7 l8u rwuyu yyktjhbler")
+    // }
+    // console.log("dfkiwvbgi")
