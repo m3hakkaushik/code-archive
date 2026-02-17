@@ -163,6 +163,30 @@
     // //    console.log(event);
     // // });
 
+/* Event Types */
+    // // Mouse Events
+    // document.getElementById('myButton1').addEventListener('click',function(){
+    //     alert('Button clicked!');
+    // });
+    // document.getElementById('myButton2').addEventListener('mouseover',function(){
+    //     alert('hovered on Button!')
+    // });
+
+    // // // Keyboard Events
+    // document.addEventListener('keyup',function(event){
+    //     alert("You released a key:"+ event.key);
+    // });
+    // document.addEventListener('keydown',function(event){
+    //     alert("You pressed:" + event.key);
+    // });
+
+    // const form = document.getElementById('myForm');
+    // form.addEventListener('submit',function(event){
+    //     event.preventDefault();
+    //     alert("Form Submitted");
+    // });
+
+
 
 
 
@@ -178,8 +202,8 @@
 
 
     
-
-
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+//--------class content--------
     // let count =1
     // const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
     
