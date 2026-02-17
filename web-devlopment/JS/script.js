@@ -94,18 +94,77 @@
 
 
 /* Lecture: Introduction to DOM Traversal*/
-    const container = document.getElementById("container");
-    container.firstElementChild.style.color ='blue';
-    container.lastElementChild.style.fontWeight ='bold';
-    console.log(container);
-    let heading = document.getElementById ("container");
-    console.log(heading.textContent); //OUTPUT : Submit
+    // const container = document.getElementById("container");
+    // container.firstElementChild.style.color ='blue';
+    // container.lastElementChild.style.fontWeight ='bold';
+    // console.log(container);
+    // let heading = document.getElementById ("container");
+    // console.log(heading.textContent); //OUTPUT : Submit
 
-    const container2 = document.getElementsByClassName("container2");
-    console.log(container2);
-    console.log(container2.textContent); //OUTPUT: undefined
+    // const container2 = document.getElementsByClassName("container2");
+    // console.log(container2);
+    // console.log(container2.textContent); //OUTPUT: undefined
 
-/* Lecture : Modern DOM Selectors
+/* Lecture : Modern DOM Selectors */
+    // let card = document.querySelector(".cards");
+    // console.log(card.textContent); //OUTPUT: Hello
+ 
+    // let notes = document.querySelectorAll(".note");
+    // notes.forEach(note => console.log(note.textContent));
+
+
+    // //changing content and styles
+    // card.innerText = "chgsggtdyffjvryrjyjy";
+    // console.log(card.textContent);
+    // card.innerHTML = "<strong>welcome!</strong>";
+    // console.log(card.textContent);
+    // card.textContent = "Buffalo";
+    // console.log(card.textContent);
+    // card.style.color="orange"
+    // card.style.backgroundColor="lightyellow"
+
+
+    // // creating and removing elements
+    // const button = document.getElementById("add-btn")
+    // button.addEventListener("click",function(){
+    //     const newItem = document.createElement("li");
+    //     newItem.textContent="Bread";
+    //     const list = document.getElementById("shopping-list");
+    //     list.appendChild(newItem);
+    // });
+    // const removeButton = document.getElementById("remove-btn");
+    // removeButton.addEventListener("click",function(){
+    //     const list = document.getElementById("shopping-list");
+    //     const lastItem = list.lastElementChild;
+
+    //     if (lastItem){
+    //         list.removeChild(lastItem);
+    //     }
+
+    // })
+
+    // // introduction to classList
+    // // // document.getElementById("div1").classList.add("box") //add element
+    // // // document.getElementById("div1").classList.remove("box") //remove element
+    // document.getElementById("div1").classList.toggle("box") //adds if doesn't exist and removes if it exist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 
     // let count =1
     // const timerID=setInterval(()=>{console.log("interval:"+count); count++;},1000)
