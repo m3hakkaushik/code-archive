@@ -112,7 +112,7 @@
     // let notes = document.querySelectorAll(".note");
     // notes.forEach(note => console.log(note.textContent));
 
-/* Styling DOM Elements */
+    /* Styling DOM Elements */
     // //changing content and styles
     // card.innerText = "chgsggtdyffjvryrjyjy";
     // console.log(card.textContent);
@@ -148,7 +148,7 @@
     // // // document.getElementById("div1").classList.remove("box") //remove element
     // document.getElementById("div1").classList.toggle("box") //adds if doesn't exist and removes if it exist
 
-/* Event Handling Basics */
+/* Lecture : Event Handling Basics */
     // const button = document.getElementById("btn")
     // const stopbtn = document.getElementById("stop");
     // function showMessage (){
@@ -163,7 +163,7 @@
     // //    console.log(event);
     // // });
 
-/* Event Types */
+/* Lecture : Event Types */
     // // Mouse Events
     // document.getElementById('myButton1').addEventListener('click',function(){
     //     alert('Button clicked!');
@@ -180,13 +180,41 @@
     //     alert("You pressed:" + event.key);
     // });
 
+    // // // Form Event
     // const form = document.getElementById('myForm');
     // form.addEventListener('submit',function(event){
     //     event.preventDefault();
     //     alert("Form Submitted");
     // });
 
+/* Lecture : Event Propagation */
 
+    // // event capturing
+    // document.getElementById("outer").addEventListener("click",()=>{
+    //     alert("Outer Div (Capturing)");
+    // },true);
+    // document.getElementById("inner").addEventListener("click",()=>{
+    //     alert("Inner Div (Capturing)");
+    // },true);
+    // document.getElementById("btn").addEventListener("click",()=>{
+    //     alert("Button Clicked");
+    // });
+
+    // // event bubbling
+    // document.getElementById("outer").addEventListener("click",()=>{
+    //     alert("Outer Div (Bubbling)");
+    // },true);
+    // document.getElementById("inner").addEventListener("click",()=>{
+    //     alert("Inner Div (Bubbling)");
+    // },true);
+    // document.getElementById("btn").addEventListener("click",()=>{
+    //     alert("Button Clicked");
+    // });
+
+    // // event.preventDefault()
+    // document.getElementById("myForm").addEventListener("submit",function(e){
+    //     alert ("form submitted.");
+    // });
 
 
 
