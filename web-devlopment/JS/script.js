@@ -112,7 +112,7 @@
     // let notes = document.querySelectorAll(".note");
     // notes.forEach(note => console.log(note.textContent));
 
-
+/* Styling DOM Elements */
     // //changing content and styles
     // card.innerText = "chgsggtdyffjvryrjyjy";
     // console.log(card.textContent);
@@ -148,6 +148,20 @@
     // // // document.getElementById("div1").classList.remove("box") //remove element
     // document.getElementById("div1").classList.toggle("box") //adds if doesn't exist and removes if it exist
 
+/* Event Handling Basics */
+    // const button = document.getElementById("btn")
+    // const stopbtn = document.getElementById("stop");
+    // function showMessage (){
+    //     alert("Button clicked")
+    // }
+    // button.addEventListener("click",showMessage); //added alert to button
+    // stopbtn.addEventListener("click",function(){
+    //     button.removeEventListener("click",showMessage) //after clicking stop , the button will no longer respond
+    // });
+    
+    // // element.addEventListener("click",function(event){
+    // //    console.log(event);
+    // // });
 
 
 
