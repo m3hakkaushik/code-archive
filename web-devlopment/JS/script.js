@@ -217,6 +217,50 @@
     // });
 
 
+/* Lecture : JS Execution Concepts */
+
+    // //execution context :
+    // var a=10;
+    // let b=20;
+    // console.log(window.a);  //output: 10
+    // console.log(window.b);  //output: undefined
+
+    // //funtion execution context :
+    // function greet () {
+    //     var message = "abra-ca-dabra";
+    //     console.log(message);
+    // }
+    // greet(); //output: abra-ca-dabra
+    // console.log(message); //output: undefined.. message deleted after fun execution
+
+    // //call stack :
+    // const trace="grdig"
+    // function first(){
+    //     second();
+    // }
+    // function second(){
+    //     third();
+    // }
+    // function third(){
+    //     console.trace();
+    // }
+    // first()
+    // //call stack execution order example:
+    // function main(){
+    //     console.log("main start");
+    //     helper();
+    //     console.log("Helper Running");
+    // }
+    // function helper(){
+    //     console.log("Helper Running");
+    // }
+    // main();
+    // // call stack overflow
+    function infinte(){
+        infinte();
+    }
+    infinte();
+
 
 
 
