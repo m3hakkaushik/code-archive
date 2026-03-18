@@ -1,95 +1,67 @@
-const API_KEY = "0133cc5316757ac730cc46ae342334e4";
+const API_KEY="0133cc5316757ac730cc46ae342334e4"
 
-const form = document.getElementById("form");
-const cityInput = document.getElementById("city");
-const weatherInfo = document.getElementById("weatherInfo");
-const logBox = document.getElementById("logBox");
-const historyBox = document.getElementById("history");
+const form=document.querySelector('#form')
+const city = document.querySelector('#city')   // ✅ added
+const weatherDetail=document.querySelector('.info')
+const searchHistory=document.querySelector('.historyBtn')
 
-let history = JSON.parse(localStorage.getItem("cities")) || [];
-renderHistory();
+let cityHistory =JSON.parse(localStorage.getItem("cityHistory")) || []
 
-/* Utility logger to visualize Event Loop */
-function log(message) {
-    logBox.textContent += message + "\n";
-}
+form.addEventListener('submit',async function(event){
+    event.preventDefault()
+    const searchCity=city.value
+    console.log(searchCity)
+    getData(searchCity)
+})
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const city = cityInput.value.trim();
+async function getData(searchCity) {
+    if (searchCity){
+        try{
+            const res =await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${API_KEY}`)
+            const data=await res.json()
 
-    logBox.textContent = ""; // reset console
+            if(data.cod===200){
+                weatherDetail.innerHTML=`
+                <p>City: ${data.name}</p>
+                <p>Temp: ${(data.main.temp-273.15).toFixed(1)}°C</p>
+                <p>Weather: ${data.weather[0].main}</p>
+                <p>Humidity: ${data.main.humidity}</p>
+                <p>Wind: ${data.wind.speed} m/s</p>
+                `
 
-    if (!city) {
-        weatherInfo.innerHTML = `<span style="color:red">Please enter a city</span>`;
-        log("❌ Validation failed (Empty Input)");
-        return;
-    }
+                if(!cityHistory.includes(searchCity)){
+                    cityHistory.push(searchCity)
+                    localStorage.setItem("cityHistory",JSON.stringify(cityHistory))
+                    displayHistory()
+                }
 
-    log("1️⃣ Sync Start");
-    log("2️⃣ [ASYNC] Fetch request initiated");
+            }else{
+                weatherDetail.innerHTML=`<p>City not found</p>`
+            }
 
-    try {
-        const response = await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
-        );
-
-        /* Microtask */
-        Promise.resolve().then(() => {
-            log("4️⃣ Promise.then() → Microtask Queue");
-        });
-
-        /* Macrotask */
-        setTimeout(() => {
-            log("5️⃣ setTimeout() → Macrotask Queue");
-        }, 0);
-
-        if (!response.ok) throw new Error("Invalid City");
-
-        const data = await response.json();
-        log("3️⃣ [ASYNC] Data received from API");
-
-        displayWeather(data);
-        saveHistory(city);
-
-    } catch (error) {
-        weatherInfo.innerHTML = `<span style="color:red">City not found</span>`;
-        log("❌ Error handled using try...catch");
-    }
-
-    log("6️⃣ Sync End");
-});
-
-/* Weather Renderer */
-function displayWeather(data) {
-    weatherInfo.innerHTML = `
-        <p><b>City</b> ${data.name}, ${data.sys.country}</p>
-        <p><b>Temp</b> ${(data.main.temp - 273.15).toFixed(1)} °C</p>
-        <p><b>Weather</b> ${data.weather[0].main}</p>
-        <p><b>Humidity</b> ${data.main.humidity}%</p>
-        <p><b>Wind</b> ${data.wind.speed} m/s</p>
-    `;
-}
-
-/* Local Storage Handling */
-function saveHistory(city) {
-    if (!history.includes(city)) {
-        history.unshift(city);
-        history = history.slice(0, 5);
-        localStorage.setItem("cities", JSON.stringify(history));
-        renderHistory();
+        }catch(e){
+            weatherDetail.innerHTML = "<p>Error fetching data</p>";
+            console.log(e)
+        }
     }
 }
 
-function renderHistory() {
-    historyBox.innerHTML = "";
-    history.forEach(city => {
-        const tag = document.createElement("span");
-        tag.textContent = city;
-        tag.onclick = () => {
-            cityInput.value = city;
-            form.dispatchEvent(new Event("submit"));
-        };
-        historyBox.appendChild(tag);
-    });
+function displayHistory(){
+   searchHistory.innerHTML=""
+   const history=JSON.parse(localStorage.getItem("cityHistory"))
+
+   if(history){
+      history.forEach((city) => {
+         const btn=document.createElement("button")
+         btn.innerText=city
+
+         btn.addEventListener("click",function(){
+            getData(city)
+         })
+
+         searchHistory.appendChild(btn)
+      });
+   }
 }
+
+displayHistory()
