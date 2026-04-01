@@ -1,52 +1,100 @@
+/* 🌿 Clean Green Background */
 body {
-    font-family: Arial, sans-serif;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #d8f3dc, #95d5b2);
+    color: #1b4332;
+}
+
+/* 🌿 Title */
+.title {
     text-align: center;
-    padding: 30px;
-    background: linear-gradient(135deg, #d4fc79, #96e6a1);
-    min-height: 100vh;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-h2, h3 {
-    color: #2d6a4f;
+/* 🌿 Layout */
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
 }
 
-form {
-    margin-bottom: 20px;
+/* 🌿 Cards */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    color: #1b4332;
+    padding: 20px;
+    width: 360px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* 🌿 Input */
 input {
+    width: 65%;
     padding: 10px;
-    width: 220px;
     border-radius: 8px;
     border: none;
     outline: none;
-    background: #ffffffcc;
+    background: #f1fdf7;
 }
 
+/* 🌿 Button */
 button {
-    padding: 10px 15px;
-    background-color: #52b788;
-    color: #fff;
+    padding: 10px 14px;
+    background: #2d6a4f;
     border: none;
-    border-radius: 8px;
+    color: white;
     cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s ease;
 }
 
 button:hover {
-    background-color: #40916c;
+    background: #1b4332;
 }
 
-.info {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 15px;
+/* 🌿 History Tags */
+#history span {
+    background: #52b788;
+    color: white;
+    padding: 6px 10px;
+    margin: 6px 6px 0 0;
+    display: inline-block;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+#history span:hover {
+    background: #40916c;
+}
+
+/* 🌿 Weather Info */
+#weatherInfo {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* 🌿 Console */
+.console {
     margin: 20px auto;
-    width: 260px;
+    width: 80%;
+    background: #1b4332;
+    padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    color: #d8f3dc;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
-.historyBtn button {
-    margin: 5px;
-    background-color: #74c69d;
-    color: #1b4332;
+
+pre {
+    color: #b7e4c7;
+    font-size: 13px;
 }
