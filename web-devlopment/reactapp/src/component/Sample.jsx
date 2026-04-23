@@ -47,7 +47,7 @@
 
 
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect , useRef } from 'react'
 import styles from "../css/Sample.module.css"
 import NavStyle from "../css/NavBar.module.css"
 // import styled from "styled-components"
@@ -60,6 +60,7 @@ function Sample() {
   const [count, setCount]=useState(0)
   const[name, setName]= useState("Devendra")
   const [loading, setLoading]=useState(false)
+  const inputRef = useRef()
 
   useEffect(()=>{
     console.log("Component is mounted")
@@ -109,6 +110,7 @@ function Sample() {
       <h2>{count}</h2>
       <h3>{name}</h3>
       {loading?<h2>Loading...</h2>:""}
+      <input type='text' ref={inputRef}></input>
       <button onClick={()=>setName("Alex")}>Change the Name</button>
       <button css={funcButton} onClick={increment}>Increment</button>
       <Button danger onClick={decrement}>decrement</Button>
