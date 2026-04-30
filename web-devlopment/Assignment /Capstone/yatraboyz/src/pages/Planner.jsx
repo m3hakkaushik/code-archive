@@ -257,8 +257,28 @@ function TransportTabs({ from, destination }) {
 }
 
 const DESTINATIONS = [
-  'Goa', 'Manali', 'Jaipur', 'Kerala', 'Ladakh', 'Rishikesh',
-  'Mysore', 'Andaman', 'Coorg', 'Spiti', 'Varanasi', 'Meghalaya'
+  // 🏝️ Beaches
+  'Goa', 'Andaman', 'Pondicherry', 'Gokarna', 'Varkala',
+
+  // 🏔️ Mountains / Hill Stations
+  'Manali', 'Shimla', 'Dharamshala', 'Spiti', 'Ladakh',
+  'Mussoorie', 'Nainital', 'Auli', 'Kasauli',
+
+  // 🏰 Heritage / Cities
+  'Jaipur', 'Udaipur', 'Jodhpur', 'Jaisalmer', 'Agra',
+  'Delhi', 'Varanasi', 'Lucknow', 'Hyderabad',
+
+  // 🌿 Nature / South India
+  'Kerala', 'Munnar', 'Coorg', 'Ooty', 'Wayanad', 'Mysore',
+
+  // 🌄 Northeast
+  'Meghalaya', 'Shillong', 'Gangtok', 'Tawang', 'Kaziranga',
+
+  // 🧘 Spiritual
+  'Rishikesh', 'Haridwar', 'Amritsar', 'Tirupati',
+
+  // 🌆 Metro Cities
+  'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Pune', 'Ahmedabad',
 ];
 
 const EMPTY_FORM = { from: '', destination: '', budget: '', days: '', notes: '' };
@@ -315,13 +335,16 @@ function Planner() {
           <h2>{editId ? 'Edit Trip' : 'Plan a Trip'}</h2>
           <div className='form-group'>
             <label>From</label>
-            <input
-              type='text'
+            <select
               value={form.from}
               onChange={e => handleChange('from', e.target.value)}
-              placeholder='e.g. Delhi'
               className={errors.from ? 'input-error' : ''}
-            />
+            >
+              <option value=''>Select departure city...</option>
+              {Object.keys(CITY_COORDS).map(city => (
+                <option key={city}>{city}</option>
+              ))}
+            </select>
             {errors.from && <span className='error-msg'>{errors.from}</span>}
           </div>
           <div className='form-group'>

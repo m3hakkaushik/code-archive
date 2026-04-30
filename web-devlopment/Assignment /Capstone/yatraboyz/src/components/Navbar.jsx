@@ -7,24 +7,37 @@ function Navbar() {
 
   return (
     <nav className='navbar'>
-      <div className='navbar-inner container'>
+      <div className='navbar-inner'>
         <NavLink to='/' className='navbar-logo'>
           <span className='logo-icon'>✈</span>
           <span className='logo-text'>Yatra<span>Boyz</span></span>
         </NavLink>
 
         <div className='navbar-links'>
-          <NavLink to='/' className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} end>
-            Home
+          <NavLink
+            to='/'
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+            end
+          >
+            🏠 Home
           </NavLink>
-          <NavLink to='/explore' className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Explore
+          <NavLink
+            to='/explore'
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            🧭 Explore
           </NavLink>
-          <NavLink to='/planner' className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Planner
+          <NavLink
+            to='/planner'
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            📅 Planner
           </NavLink>
-          <NavLink to='/dashboard' className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-            Dashboard
+          <NavLink
+            to='/dashboard'
+            className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          >
+            📊 Dashboard
           </NavLink>
         </div>
 
