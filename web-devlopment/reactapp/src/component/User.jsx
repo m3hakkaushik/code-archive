@@ -1,14 +1,13 @@
-import React, { PureComponent } from 'react'
+import React, { useContext } from 'react'
 import { UserContext } from '../UserContext'
 
 function User() {
-    const {name} = UserContext()
+    const name=useContext(UserContext)
   return (
-
     <div>
-        <h2> say hiiiiiii {name}</h2>
+      <h1>Hello {name}</h1>
     </div>
-    )
-    }
+  )
+}
 
 export default User
