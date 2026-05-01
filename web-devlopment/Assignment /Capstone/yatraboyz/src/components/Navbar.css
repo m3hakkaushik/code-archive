@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 300px;
+  width: 220px;
   z-index: 100;
   background: var(--bg-nav);
   border-right: 1px solid var(--border);
@@ -103,5 +103,5 @@
 }
 
 .app-content {
-  margin-left: 0px;
+  margin-left: 150px;
 }

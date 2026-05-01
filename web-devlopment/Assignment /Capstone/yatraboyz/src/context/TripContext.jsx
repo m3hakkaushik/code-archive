@@ -4,11 +4,39 @@ const TripContext = createContext();
 
 export function TripProvider({ children }) {
   const [trips, setTrips] = useState(() => {
-    try {
-      const saved = localStorage.getItem('yatraboyz_trips');
-      return saved ? JSON.parse(saved) : [];
-    } catch { return []; }
-  });
+  try {
+    const saved = localStorage.getItem('yatraboyz_trips');
+    if (saved) return JSON.parse(saved);
+    return [
+      {
+        id: 1,
+        from: "Delhi",
+        destination: "Goa",
+        budget: 15000,
+        days: 5,
+        notes: "Beach + parties"
+      },
+      {
+        id: 2,
+        from: "Mumbai",
+        destination: "Manali",
+        budget: 20000,
+        days: 6,
+        notes: "Snow + adventure"
+      },
+      {
+        id: 3,
+        from: "Bangalore",
+        destination: "Jaipur",
+        budget: 12000,
+        days: 4,
+        notes: "Heritage trip"
+      }
+    ];
+  } catch {
+    return [];
+  }
+});
 
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem('yatraboyz_dark') === 'true';
