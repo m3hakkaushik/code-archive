@@ -19,9 +19,6 @@ min-height:100vh;
 }
 
 
-
-/* LEFT PANEL */
-
 .leftPanel{
 background:#ffeaf3;
 border:3px solid #f6c7d9;
@@ -102,8 +99,6 @@ background:#e883ac;
 
 
 
-/* RIGHT */
-
 .rightPanel{
 display:flex;
 flex-direction:column;
@@ -111,8 +106,6 @@ gap:24px;
 }
 
 
-
-/* STATS */
 
 .statsGrid{
 display:grid;
@@ -140,8 +133,6 @@ color:#e77aa5;
 }
 
 
-
-/* TABLE */
 
 .tableBox{
 background:white;
@@ -193,8 +184,6 @@ color:#c35b89;
 
 
 
-/* STATUS */
-
 .badgePass,
 .badgeFail{
 display:inline-block;
@@ -216,8 +205,6 @@ color:#d44d4d;
 }
 
 
-
-/* UPDATE */
 
 .updateCell{
 display:flex;
@@ -249,8 +236,6 @@ background:#eca7c3;
 
 
 
-/* DELETE */
-
 .deleteBtn{
 width:34px;
 height:34px;
@@ -267,8 +252,6 @@ background:#ffd2e2;
 }
 
 
-
-/* MOBILE */
 
 @media(max-width:1100px){
 
