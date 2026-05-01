@@ -69,7 +69,6 @@ function Dashboard() {
         <p>Your travel statistics at a glance</p>
       </div>
 
-      {/* Stat Widgets */}
       <div className='dash-stats'>
         {[
           { icon: '✈️', label: 'Total Trips', val: trips.length },
@@ -86,7 +85,6 @@ function Dashboard() {
         ))}
       </div>
 
-      {/* Charts */}
       {trips.length === 0 ? (
         <div className='no-data card'>
           <span>📊</span>
@@ -111,7 +109,6 @@ function Dashboard() {
         </div>
       )}
 
-      {/* Trips Table */}
       {trips.length > 0 && (
         <div className='dash-table card fade-up'>
           <h3>All Trips Summary</h3>

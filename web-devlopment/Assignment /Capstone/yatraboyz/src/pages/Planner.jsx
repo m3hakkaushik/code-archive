@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import { useTrips } from '../context/TripContext';
 import './Planner.css';
 
-// ─── API Keys ─────────────────────────────────────────────────────────────────
+
 const AVIATIONSTACK_KEY = '2e0c74c1ea54873ed6393e92c79d79a8';
 const ORS_KEY           = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImM3ZjAzMGFmNDgyZDRmZGU4NzFmYjI3YzY2NDdjMTdiIiwiaCI6Im11cm11cjY0In0=';
 
-// ─── City → IATA (flights) ────────────────────────────────────────────────────
 const CITY_IATA = {
   Delhi: 'DEL', Goa: 'GOI', Manali: 'KUU', Jaipur: 'JAI',
   Kerala: 'COK', Ladakh: 'IXL', Rishikesh: 'DED', Mysore: 'MYQ',
@@ -16,7 +15,6 @@ const CITY_IATA = {
   Pune: 'PNQ', Ahmedabad: 'AMD',
 };
 
-// ─── City → coordinates (ORS geocoding fallback) ──────────────────────────────
 const CITY_COORDS = {
   Delhi:      [77.2090, 28.6139], Goa:        [73.8278, 15.4909],
   Manali:     [77.1892, 32.2396], Jaipur:     [75.7873, 26.9124],
@@ -28,7 +26,6 @@ const CITY_COORDS = {
   Bangalore:  [77.5946, 12.9716], Hyderabad:  [78.4867, 17.3850],
   Kolkata:    [88.3639, 22.5726], Chennai:    [80.2707, 13.0827],
   Pune:       [73.8567, 18.5204], Ahmedabad:  [72.5714, 23.0225],
-  // common "From" cities
   Chandigarh: [76.7794, 30.7333], Amritsar:   [74.8727, 31.6340],
   Lucknow:    [80.9462, 26.8467], Indore:     [75.8577, 22.7196],
   Bhopal:     [77.4126, 23.2599], Nagpur:     [79.0882, 21.1458],
@@ -57,7 +54,6 @@ function resolveIata(cityName) {
   return key ? CITY_IATA[key] : null;
 }
 
-// ─── useFlights hook ──────────────────────────────────────────────────────────
 function useFlights(from, destination, active) {
   const [flights, setFlights] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -98,7 +94,7 @@ function useFlights(from, destination, active) {
   return { flights, loading, error };
 }
 
-// ─── useRoad hook (OpenRouteService) ─────────────────────────────────────────
+
 function useRoad(from, destination, active) {
   const [road, setRoad]     = useState(null);
   const [loading, setLoading] = useState(false);
@@ -154,9 +150,9 @@ function useRoad(from, destination, active) {
   return { road, loading, error };
 }
 
-// ─── TransportTabs ────────────────────────────────────────────────────────────
+
 function TransportTabs({ from, destination }) {
-  const [tab, setTab] = useState(null); // null = collapsed
+  const [tab, setTab] = useState(null);  
 
   const flightActive = tab === 'flights';
   const roadActive   = tab === 'road';
@@ -168,7 +164,6 @@ function TransportTabs({ from, destination }) {
 
   return (
     <div className='transport-tabs'>
-      {/* Tab buttons */}
       <div className='transport-tab-btns'>
         <button
           className={`transport-tab-btn ${tab === 'flights' ? 'active' : ''}`}
@@ -184,7 +179,7 @@ function TransportTabs({ from, destination }) {
         </button>
       </div>
 
-      {/* Flights panel */}
+
       {tab === 'flights' && (
         <div className='transport-panel'>
           {fLoading && <div className='transport-loading'>Fetching live flights...</div>}
@@ -229,7 +224,7 @@ function TransportTabs({ from, destination }) {
         </div>
       )}
 
-      {/* Road panel */}
+
       {tab === 'road' && (
         <div className='transport-panel'>
           {rLoading && <div className='transport-loading'>Calculating road route...</div>}
@@ -257,27 +252,17 @@ function TransportTabs({ from, destination }) {
 }
 
 const DESTINATIONS = [
-  // 🏝️ Beaches
+  
   'Goa', 'Andaman', 'Pondicherry', 'Gokarna', 'Varkala',
-
-  // 🏔️ Mountains / Hill Stations
   'Manali', 'Shimla', 'Dharamshala', 'Spiti', 'Ladakh',
   'Mussoorie', 'Nainital', 'Auli', 'Kasauli',
-
-  // 🏰 Heritage / Cities
   'Jaipur', 'Udaipur', 'Jodhpur', 'Jaisalmer', 'Agra',
   'Delhi', 'Varanasi', 'Lucknow', 'Hyderabad',
 
-  // 🌿 Nature / South India
   'Kerala', 'Munnar', 'Coorg', 'Ooty', 'Wayanad', 'Mysore',
-
-  // 🌄 Northeast
   'Meghalaya', 'Shillong', 'Gangtok', 'Tawang', 'Kaziranga',
 
-  // 🧘 Spiritual
   'Rishikesh', 'Haridwar', 'Amritsar', 'Tirupati',
-
-  // 🌆 Metro Cities
   'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Pune', 'Ahmedabad',
 ];
 
@@ -481,7 +466,18 @@ function BudgetCalculator() {
 
       <select value={dest} onChange={e => setDest(e.target.value)}>
         <option value=''>Select destination</option>
-        {['Goa', 'Manali', 'Jaipur', 'Kerala', 'Ladakh', 'Rishikesh'].map(d => (
+        {[
+          'Goa', 'Andaman', 'Pondicherry', 'Gokarna', 'Varkala',
+          'Manali', 'Shimla', 'Dharamshala', 'Spiti', 'Ladakh',
+          'Mussoorie', 'Nainital', 'Auli', 'Kasauli',
+
+          'Jaipur', 'Udaipur', 'Jodhpur', 'Jaisalmer', 'Agra', 'Hyderabad', 'Ooty', 'Wayanad', 'Mysore',
+
+          'Meghalaya', 'Shillong', 'Gangtok', 'Tawang', 'Kaziranga',
+
+          'Rishikesh', 'Haridwar', 'Amritsar', 'Tirupati',
+
+          'Mumbai', 'Bangalore', 'Chennai', 'Kolkata', 'Pune', 'Ahmedabad',].map(d => (
           <option key={d}>{d}</option>
         ))}
       </select>

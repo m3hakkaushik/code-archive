@@ -57,7 +57,6 @@ function Explore() {
         <p>Discover India's most breathtaking places</p>
       </div>
 
-      {/* Search & Filters */}
       <div className='explore-controls card fade-up'>
         <input
           className='search-input'
@@ -72,7 +71,6 @@ function Explore() {
         </select>
       </div>
 
-      {/* Category Filters */}
       <div className='category-filters fade-up'>
         {CATEGORIES.map(cat => (
           <button
@@ -85,10 +83,8 @@ function Explore() {
         ))}
       </div>
 
-      {/* Results count */}
       <p className='results-count'>{filtered.length} destination{filtered.length !== 1 ? 's' : ''} found</p>
 
-      {/* Grid */}
       <div className='explore-grid'>
         {filtered.length === 0 ? (
           <div className='no-results'>

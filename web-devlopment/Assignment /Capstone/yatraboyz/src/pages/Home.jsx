@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <div className='home'>
-      {/* Hero */}
+
       <section className='hero'>
         <div className='hero-bg-shape' />
         <div className='container hero-content fade-up'>
@@ -42,7 +42,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Stats */}
       <section className='stats container'>
         {[
           { val: '50+', label: 'Destinations' },
@@ -57,7 +56,6 @@ function Home() {
         ))}
       </section>
 
-      {/* Featured */}
       <section className='featured container'>
         <div className='section-header'>
           <h2>Popular Destinations</h2>
@@ -85,7 +83,6 @@ function Home() {
         </div>
       </section>
 
-      {/* CTA Banner */}
       <section className='cta-banner container'>
         <div className='cta-inner card'>
           <h2>Ready to plan your next yatra?</h2>
