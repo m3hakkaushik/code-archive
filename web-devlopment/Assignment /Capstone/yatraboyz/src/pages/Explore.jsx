@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import './Explore.css';
+
 import goaImage from '../assets/goa.jpg';
 import manaliImage from '../assets/manali.jpeg';
 import jaipurImage from '../assets/jaipur.jpg';
@@ -35,11 +36,19 @@ function Explore() {
   const [category, setCategory] = useState('All');
   const [sort, setSort] = useState('rating');
 
+  // ✅ Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const tripsPerPage = 4;
+
+  // ✅ Filter + sort
   const filtered = useMemo(() => {
     let list = ALL_DESTINATIONS.filter(d => {
-      const matchSearch = d.name.toLowerCase().includes(search.toLowerCase()) ||
+      const matchSearch =
+        d.name.toLowerCase().includes(search.toLowerCase()) ||
         d.desc.toLowerCase().includes(search.toLowerCase());
+
       const matchCat = category === 'All' || d.category === category;
+
       return matchSearch && matchCat;
     });
 
@@ -49,6 +58,18 @@ function Explore() {
 
     return list;
   }, [search, category, sort]);
+
+  // ✅ Reset page when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, category, sort]);
+
+  // ✅ Pagination logic
+  const indexOfLast = currentPage * tripsPerPage;
+  const indexOfFirst = indexOfLast - tripsPerPage;
+  const currentTrips = filtered.slice(indexOfFirst, indexOfLast);
+
+  const totalPages = Math.ceil(filtered.length / tripsPerPage);
 
   return (
     <div className='explore container'>
@@ -64,7 +85,12 @@ function Explore() {
           onChange={e => setSearch(e.target.value)}
           placeholder='🔍  Search destinations...'
         />
-        <select className='sort-select' value={sort} onChange={e => setSort(e.target.value)}>
+
+        <select
+          className='sort-select'
+          value={sort}
+          onChange={e => setSort(e.target.value)}
+        >
           <option value='rating'>Sort: Top Rated</option>
           <option value='price_asc'>Sort: Price Low→High</option>
           <option value='price_desc'>Sort: Price High→Low</option>
@@ -83,39 +109,74 @@ function Explore() {
         ))}
       </div>
 
-      <p className='results-count'>{filtered.length} destination{filtered.length !== 1 ? 's' : ''} found</p>
+      <p className='results-count'>
+        {filtered.length} destination{filtered.length !== 1 ? 's' : ''} found
+      </p>
 
       <div className='explore-grid'>
         {filtered.length === 0 ? (
           <div className='no-results'>
-            <span>😕</span>
+            <span>---</span>
             <p>No destinations match your search.</p>
           </div>
         ) : (
-          filtered.map((d, i) => (
-            <div className='exp-card card fade-up' key={d.name} style={{ animationDelay: `${i * 0.06}s` }}>
-              {d.image ? (
-                <div className="exp-image-wrap">
-                  <img src={d.image} alt={d.name} className="exp-image" />
-                </div>
-              ) : (
-                <div className="exp-emoji">{d.emoji}</div>
-              )}
+          currentTrips.map((d, i) => (
+            <div
+              className='exp-card card fade-up'
+              key={d.name}
+              style={{ animationDelay: `${i * 0.06}s` }}
+            >
+              <div className="exp-image-wrap">
+                <img src={d.image} alt={d.name} className="exp-image" />
+              </div>
+
               <div className='exp-body'>
                 <div className='exp-top'>
                   <h3>{d.name}</h3>
                   <span className='tag'>{d.category}</span>
                 </div>
+
                 <p className='exp-desc'>{d.desc}</p>
+
                 <div className='exp-footer'>
                   <span className='exp-rating'>⭐ {d.rating}</span>
-                  <span className='exp-price'>from ₹{d.price.toLocaleString('en-IN')}</span>
+                  <span className='exp-price'>
+                    from ₹{d.price.toLocaleString('en-IN')}
+                  </span>
                 </div>
               </div>
             </div>
           ))
         )}
       </div>
+
+      {filtered.length > 0 && (
+        <div className="pagination">
+          <button
+            onClick={() => setCurrentPage(p => p - 1)}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={currentPage === i + 1 ? "active-page" : ""}
+            >
+              {i + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={() => setCurrentPage(p => p + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }

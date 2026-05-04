@@ -70,7 +70,7 @@
   margin-top: 8px;
 }
 
-/* Budget Calc */
+
 .budget-calc {
   padding: 28px;
   display: flex;
@@ -118,7 +118,7 @@
 .calc-row.surplus { color: #16A34A; font-weight: 600; }
 .calc-row.deficit { color: #DC2626; font-weight: 600; }
 
-/* Trips */
+
 .trips-section h2 { font-size: 28px; margin-bottom: 20px; }
 
 .trips-grid {
@@ -179,7 +179,7 @@
  color:var(--primary);
  font-weight:700;
 }
-/* ── Transport Tabs ───────────────────────────────────────────────────────────*/
+
 .transport-tabs {
   margin-top: 16px;
   border-top: 1px solid var(--border);
@@ -236,7 +236,7 @@
   border-radius: 4px;
 }
 
-/* ── Flight table ─────────────────────────────────────────────────────────────*/
+
 .flight-table-wrap { overflow-x: auto; }
 
 .flight-table {
@@ -279,7 +279,7 @@
 .flight-status--cancelled { background: rgba(220,38,38,0.12);  color: #DC2626; }
 .flight-status--diverted  { background: rgba(234,179,8,0.12);  color: #CA8A04; }
 
-/* ── Road result ──────────────────────────────────────────────────────────────*/
+
 .road-result {
   border: 1.5px solid var(--border);
   border-radius: 8px;

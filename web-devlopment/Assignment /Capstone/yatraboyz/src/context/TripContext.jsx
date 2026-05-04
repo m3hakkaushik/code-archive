@@ -42,12 +42,12 @@ export function TripProvider({ children }) {
     return localStorage.getItem('yatraboyz_dark') === 'true';
   });
 
-  // Persist trips
+
   useEffect(() => {
     localStorage.setItem('yatraboyz_trips', JSON.stringify(trips));
   }, [trips]);
 
-  // Persist & apply dark mode
+
   useEffect(() => {
     localStorage.setItem('yatraboyz_dark', darkMode);
     document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
