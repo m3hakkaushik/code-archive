@@ -11,7 +11,7 @@
 //   const [count, setCount] = useState(0)
 
 //   return (
-//     <>
+//     
 //       <section id="center">
 //         <div className="hero">
 //           <img src={heroImg} className="base" width="170" height="179" alt="" />
@@ -272,23 +272,60 @@
 
 //----Like button---
 
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-function App() {
-    const [liked, setLiked] = useState(false);
+// function App() {
+//     const [liked, setLiked] = useState(false);
     
-    const toggleLike = () => {
-        setLiked(!liked);
+//     const toggleLike = () => {
+//         setLiked(!liked);
+//     };
+
+//     return (
+//         <div>
+//             <h1>Like Button</h1>
+//             <button onClick={toggleLike}>
+//                 {liked ? "❤️" : "💔"}
+//             </button>
+//         </div>
+//     );
+// }
+
+// export default App
+
+
+
+
+//----todo list---
+
+// react code for todo list 
+
+import React, { useState } from 'react';
+
+function Todo() {
+  const [todos, setTodos] = useState([]);
+  
+    const addTodo = (e) => {    
+        e.preventDefault();
+        const newTodo = e.target.elements.todo.value;
+        setTodos([...todos, newTodo]);
+        e.target.elements.todo.value = '';
     };
-
-    return (
-        <div>
-            <h1>Like Button</h1>
-            <button onClick={toggleLike}>
-                {liked ? "❤️" : "💔"}
-            </button>
-        </div>
-    );
+    
+  return ( 
+    <div>
+      <h1>Todo List</h1>
+      <form onSubmit={addTodo}>
+        <input type="text" name="todo" placeholder="Add a new todo" />
+        <button type="submit">Add</button>
+      </form>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-
-export default App
+  
+export default Todo;
