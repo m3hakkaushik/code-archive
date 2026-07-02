@@ -1,0 +1,100 @@
+/* 🌿 Clean Green Background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #d8f3dc, #95d5b2);
+    color: #1b4332;
+}
+
+/* 🌿 Title */
+.title {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* 🌿 Layout */
+.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* 🌿 Cards */
+.card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    color: #1b4332;
+    padding: 20px;
+    width: 360px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* 🌿 Input */
+input {
+    width: 65%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #f1fdf7;
+}
+
+/* 🌿 Button */
+button {
+    padding: 10px 14px;
+    background: #2d6a4f;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    background: #1b4332;
+}
+
+/* 🌿 History Tags */
+#history span {
+    background: #52b788;
+    color: white;
+    padding: 6px 10px;
+    margin: 6px 6px 0 0;
+    display: inline-block;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+#history span:hover {
+    background: #40916c;
+}
+
+/* 🌿 Weather Info */
+#weatherInfo {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* 🌿 Console */
+.console {
+    margin: 20px auto;
+    width: 80%;
+    background: #1b4332;
+    padding: 15px;
+    border-radius: 12px;
+    color: #d8f3dc;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+pre {
+    color: #b7e4c7;
+    font-size: 13px;
+}
